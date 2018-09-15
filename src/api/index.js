@@ -1,9 +1,9 @@
 import { Router } from 'express'
-import createDapps from './createDapps'
+import writeSmart from './writeSmart'
 
 const router = new Router()
 
-router.use('/createDapps', createDapps)
+router.use('/writeSmarts', writeSmart)
 
 /**
  * @apiDefine master Master access only
