@@ -1,14 +1,11 @@
 import mongoose, { Schema } from 'mongoose'
 
-const createDappsSchema = new Schema({
-  name: {
+const writeSmartSchema = new Schema({
+  id_smart: {
     type: String
   },
-  rfc: {
-    type: String
-  },
-  id_contrac: {
-    type: String
+  data: {
+    type: Schema.Types.Mixed
   }
 }, {
   timestamps: true,
@@ -18,14 +15,13 @@ const createDappsSchema = new Schema({
   }
 })
 
-createDappsSchema.methods = {
+writeSmartSchema.methods = {
   view (full) {
     const view = {
       // simple view
       id: this.id,
-      name: this.name,
-      rfc: this.rfc,
-      id_contrac: this.id_contrac,
+      id_smart: this.id_smart,
+      data: this.data,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
@@ -37,7 +33,7 @@ createDappsSchema.methods = {
   }
 }
 
-const model = mongoose.model('CreateDapps', createDappsSchema)
+const model = mongoose.model('WriteSmart', writeSmartSchema)
 
 export const schema = model.schema
 export default model
